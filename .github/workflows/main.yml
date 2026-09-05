@@ -39,6 +39,9 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip
+        # The fork builds fix msgpack >= 1.0 (client) and the pkg_resources import (bootstrap)
+        pip install "dxlclient @ git+https://github.com/derjochenmueller/opendxl-client-python@epo-legacy"
+        pip install "dxlbootstrap @ git+https://github.com/derjochenmueller/opendxl-bootstrap-python@master"
         pip install wheel
         pip install .[test]
 
